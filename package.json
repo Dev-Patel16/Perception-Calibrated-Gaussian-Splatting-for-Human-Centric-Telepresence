@@ -1,0 +1,21 @@
+{
+  "name": "aperture-telepresence",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Perception-Calibrated Gaussian Splatting for Human-Centric Telepresence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "gaussian-splatting",
+    "foveated-rendering",
+    "telepresence",
+    "webrtc",
+    "hvs",
+    "perceptual-compression"
+  ],
+  "author": "Aperture Telepresence Labs",
+  "license": "MIT"
+}

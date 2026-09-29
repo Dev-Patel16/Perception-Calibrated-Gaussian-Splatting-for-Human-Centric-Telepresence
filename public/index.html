@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Aperture &mdash; Perception-Calibrated Gaussian Splatting for Telepresence</title>
+  <meta name="description" content="Real-time human telepresence platform rendering remote people as photorealistic 3D Gaussian Splats calibrated to human visual physiology." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12.5c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>" />
+</head>
+<body>
+  <div id="app-root">
+    <!-- Top Header Bar -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-logo" title="Aperture Telepresence">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12.5c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <div class="brand-name">
+            Aperture
+            <span class="brand-badge">PCE v1.0</span>
+          </div>
+          <div class="brand-tagline">Perception-Calibrated 3DGS Telepresence</div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab" data-screen="onboarding">
+          <span>1. Onboarding</span>
+        </button>
+        <button class="nav-tab" data-screen="lobby">
+          <span>2. Lobby</span>
+        </button>
+        <button class="nav-tab active" data-screen="live">
+          <span>3. Live Call</span>
+        </button>
+        <button class="nav-tab" data-screen="lab">
+          <span>4. HVS Lab</span>
+        </button>
+        <button class="nav-tab" data-screen="multiparty">
+          <span>5. Multi-Party</span>
+        </button>
+        <button class="nav-tab" data-screen="replay">
+          <span>6. 3D Replay</span>
+        </button>
+        <button class="nav-tab" data-screen="admin">
+          <span>7. Analytics</span>
+        </button>
+      </nav>
+
+      <!-- Real-Time Header Telemetry -->
+      <div class="header-telemetry">
+        <div class="telemetry-chip">
+          <span class="pulse-dot"></span>
+          <span class="telemetry-label">Bitrate:</span>
+          <span class="telemetry-val" id="header-bitrate-val">8.2 Mbps</span>
+        </div>
+
+        <div class="telemetry-chip">
+          <span class="telemetry-label">QoE:</span>
+          <span class="telemetry-val" style="color: var(--accent-emerald);" id="header-qoe-val">95.2</span>
+        </div>
+
+        <div class="telemetry-chip">
+          <span class="telemetry-label">Saved:</span>
+          <span class="telemetry-val" style="color: var(--accent-cyan);" id="header-savings-val">-68.4%</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dynamic Main Stage Container -->
+    <main class="main-stage">
+      <!-- Screen 1: Onboarding -->
+      <div class="screen-view" id="screen-onboarding"></div>
+
+      <!-- Screen 2: Lobby Pre-Flight -->
+      <div class="screen-view" id="screen-lobby"></div>
+
+      <!-- Screen 3: Live Telepresence Viewport -->
+      <div class="screen-view active" id="screen-live"></div>
+
+      <!-- Screen 4: Interactive HVS Calibration Lab -->
+      <div class="screen-view" id="screen-lab"></div>
+
+      <!-- Screen 5: Multi-Party Spatial Rooms -->
+      <div class="screen-view" id="screen-multiparty"></div>
+
+      <!-- Screen 6: 3D Session Replay -->
+      <div class="screen-view" id="screen-replay"></div>
+
+      <!-- Screen 7: Executive Admin & Analytics Dashboard -->
+      <div class="screen-view" id="screen-admin"></div>
+    </main>
+
+    <!-- Global Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+  </div>
+
+  <!-- Main ES6 Modular Application -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

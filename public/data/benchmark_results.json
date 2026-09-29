@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "evaluation_dataset": "Aperture-HVS Human Telepresence Benchmark v1.0",
+    "test_views_count": 20,
+    "target_resolution": "1920x1080 @ 60 FPS",
+    "fovea_radius_deg": 2.2,
+    "parafovea_radius_deg": 6.5
+  },
+  "ablation_study": [
+    {
+      "condition_id": "baseline_uniform_3dgs",
+      "name": "Baseline Uniform 3DGS",
+      "description": "Standard 3DGS (L1 + D-SSIM loss, uniform opacity pruning)",
+      "global_psnr": 25.53,
+      "face_psnr": 24.56,
+      "hands_psnr": 23.77,
+      "global_ssim": 0.942,
+      "face_ssim": 0.938,
+      "global_lpips": 0.088,
+      "face_lpips": 0.095,
+      "gaussian_count": 1850,
+      "bitrate_mbps": 28.5,
+      "rendering_fps": 58.4,
+      "bandwidth_saved_pct": 0.0
+    },
+    {
+      "condition_id": "semantic_saliency_3dgs",
+      "name": "Semantic Saliency 3DGS",
+      "description": "Face & hand prior weighted loss; static region pruning",
+      "global_psnr": 25.09,
+      "face_psnr": 28.54,
+      "hands_psnr": 27.21,
+      "global_ssim": 0.958,
+      "face_ssim": 0.965,
+      "global_lpips": 0.071,
+      "face_lpips": 0.046,
+      "gaussian_count": 1420,
+      "bitrate_mbps": 18.2,
+      "rendering_fps": 60.0,
+      "bandwidth_saved_pct": 36.1
+    },
+    {
+      "condition_id": "aperture_full_pce",
+      "name": "Aperture (Perception-Calibrated 3DGS)",
+      "description": "HVS Saliency loss + Gaze-contingent foveation + Protected JND pruning",
+      "global_psnr": 24.95,
+      "face_psnr": 29.59,
+      "hands_psnr": 27.96,
+      "global_ssim": 0.971,
+      "face_ssim": 0.982,
+      "global_lpips": 0.052,
+      "face_lpips": 0.034,
+      "gaussian_count": 905,
+      "bitrate_mbps": 8.2,
+      "rendering_fps": 60.0,
+      "bandwidth_saved_pct": 71.2
+    }
+  ],
+  "rate_distortion_curve": [
+    {
+      "bitrate_mbps": 2.5,
+      "aperture_face_psnr": 27.8,
+      "baseline_face_psnr": 21.4
+    },
+    {
+      "bitrate_mbps": 5.0,
+      "aperture_face_psnr": 29.2,
+      "baseline_face_psnr": 23.6
+    },
+    {
+      "bitrate_mbps": 8.2,
+      "aperture_face_psnr": 30.6,
+      "baseline_face_psnr": 24.8
+    },
+    {
+      "bitrate_mbps": 14.0,
+      "aperture_face_psnr": 31.8,
+      "baseline_face_psnr": 27.2
+    },
+    {
+      "bitrate_mbps": 24.5,
+      "aperture_face_psnr": 32.4,
+      "baseline_face_psnr": 29.5
+    }
+  ]
+}

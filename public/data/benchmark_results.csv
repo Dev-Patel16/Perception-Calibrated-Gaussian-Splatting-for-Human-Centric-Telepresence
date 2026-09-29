@@ -1,0 +1,4 @@
+Condition,Face PSNR (dB),Hands PSNR (dB),Global SSIM,Face LPIPS,Splats,Bitrate (Mbps),Savings (%)
+Baseline Uniform 3DGS,24.56,23.77,0.942,0.095,1850,28.5,0.0
+Semantic Saliency 3DGS,28.54,27.21,0.958,0.046,1420,18.2,36.1
+Aperture (Perception-Calibrated 3DGS),29.59,27.96,0.971,0.034,905,8.2,71.2
